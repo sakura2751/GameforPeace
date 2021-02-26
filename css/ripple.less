@@ -1,0 +1,70 @@
+.hw-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.ripple{
+  width: 100px;
+  height: 100px;
+  span{
+    .hw-center();
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    color: orangered;
+    text-align: center;
+    line-height: 23px;
+    border-radius: 50%;
+    font-size: 25px;
+    z-index: 999;
+    animation: ripple 1s linear infinite;
+  }
+  b{
+    display: inline-block;
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    .hw-center();
+    &:nth-of-type(1){
+      animation: ripple1 1s linear infinite;
+    }
+    &:nth-of-type(2){
+      animation: ripple2 1s linear infinite;
+    }
+  }
+}
+@keyframes ripple1 {
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: .2;
+  }
+}
+@keyframes ripple1 {
+  from{
+    opacity: 1;
+    /*
+   此处还要translate:因为transform属性值会改变坐标系
+    */
+    transform: translate(-50%,-50%) scale(1);
+  }
+  to{
+    opacity: .4;
+    transform: translate(-50%,-50%)  scale(2);
+  }
+}
+
+@keyframes ripple2 {
+  from{
+    opacity: 1;
+    transform:  translate(-50%,-50%)  scale(1);
+  }
+  to{
+    opacity: .2;
+    transform:  translate(-50%,-50%) scale(3);
+  }
+}

@@ -1,0 +1,35 @@
+/*
+@_表示通用匹配模式，无论同名的哪一个混合模式被匹配了，通用匹配模式都会先调用执行。
+注意：不可以省去参数
+*/
+.triangle(@_, @w, @c){
+  width: 0;
+  height: 0;
+  border-style: solid solid solid solid;
+}
+
+.triangle(Down, @w, @c){
+  //width: 0;
+  //height: 0;
+  //border-style: solid solid solid solid;
+  border-width: @w;
+  border-color: @c transparent transparent transparent;
+}
+
+.triangle(Left, @w, @c){
+  //width: 0;
+  //height: 0;
+  //border-style: solid solid solid solid;
+  border-width: @w;
+  border-color:  transparent @c transparent transparent;
+}
+.triangle(Right, @w, @c){
+  //width: 0;
+  //height: 0;
+  //border-style: solid solid solid solid;
+  border-width: @w;
+  border-color:  transparent transparent transparent @c;
+}
+/*
+混合匹配模式就是通过混合的第一个字符串形参（自定义），来确定需要执行哪一个同名混合。
+*/
